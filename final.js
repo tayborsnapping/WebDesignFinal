@@ -9,17 +9,16 @@ $(function() {
     var currentSlide = 1;
 
     //cache DOM elements
-    var $slider = $('#slider');
-    var $slideContainer = $slider.find('.slides');
-    var $slides = $slideContainer.find('.slide',);
+    var $slider = $('.slider');
+    var $slideContainer = $('.slides', $slider);
+    var $slides = $('.slide', $slider);
 
     var interval;
 
     function startSlider() {
         interval = setInterval(function() {
             $slideContainer.animate({'margin-left': '-='+width}, animationSpeed, function() {
-                currentSlide++;
-                if (currentSlide === $slides.length) {
+                if (++currentSlide === $slides.length) {
                     currentSlide = 1;
                     $slideContainer.css('margin-left', 0);
                 }
